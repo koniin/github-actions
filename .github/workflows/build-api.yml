@@ -18,9 +18,17 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+
     - name: Where Am I?
       run: ls
     - name: Restore dependencies
       run: dotnet restore ./test-api/test-api.csproj
     - name: Build
       run: dotnet build --no-restore ./test-api/test-api.csproj
+
+    call-workflow-passing-data:
+      uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
+      with:
+        username: mona
+      secrets:
+        token: ${{ secrets.BOGUS_TOKEN }}
