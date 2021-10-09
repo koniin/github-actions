@@ -27,6 +27,7 @@ jobs:
       run: dotnet build --no-restore ./test-api/test-api.csproj
 
   call-workflow-passing-data:
+    needs: build
     uses: koniin/github-actions/.github/workflows/workflow-B.yml@master
     with:
       message: Hank the tank
