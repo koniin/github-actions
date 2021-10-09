@@ -1,15 +1,12 @@
-name: Build API
+name: Build CLI
 
 on:
   workflow_dispatch:    
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -19,17 +16,15 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
-    - name: Where Am I?
-      run: ls
     - name: Restore dependencies
-      run: dotnet restore ./test-api/test-api.csproj
+      run: dotnet restore ./cli-client/cli-client.csproj
     - name: Build
-      run: dotnet build --no-restore ./test-api/test-api.csproj
+      run: dotnet build --no-restore ./cli-client/cli-client.csproj
 
   call-workflow-passing-data:
     needs: build
     uses: koniin/github-actions/.github/workflows/workflow-B.yml@master
     with:
-      message: API Build!
+      message: CLI Build!
     secrets:
       token: ${{ secrets.BOGUS_TOKEN }}
