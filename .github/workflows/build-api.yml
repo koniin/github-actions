@@ -26,9 +26,12 @@ jobs:
     - name: Build
       run: dotnet build --no-restore ./test-api/test-api.csproj
 
-    call-workflow-passing-data:
-      uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
-      with:
-        username: mona
-      secrets:
-        token: ${{ secrets.BOGUS_TOKEN }}
+  call-workflow-passing-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: call B
+      - uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
+        with:
+          username: mona
+        #secrets:
+         # token: ${{ secrets.BOGUS_TOKEN }}
