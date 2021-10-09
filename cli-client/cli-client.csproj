@@ -6,4 +6,8 @@
     <RootNamespace>cli_client</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="super-nuget-package" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
