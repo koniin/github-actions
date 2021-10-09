@@ -28,7 +28,7 @@ jobs:
 
   call-workflow-passing-data:
     uses: koniin/github-actions/.github/workflows/workflow-B.yml@main
-      with:
-        message: Hank the tank
-      secrets:
-        token: ${{ secrets.BOGUS_TOKEN }}
+    with:
+      message: Hank the tank
+    secrets:
+      token: ${{ secrets.BOGUS_TOKEN }}
