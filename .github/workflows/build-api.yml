@@ -1,4 +1,4 @@
-name: Build .NET
+name: Build API
 
 on:
   workflow_dispatch:    
@@ -19,8 +19,6 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore .\test-api\test-api.csproj
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build --no-restore .\test-api\test-api.csproj
