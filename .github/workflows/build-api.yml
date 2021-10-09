@@ -25,13 +25,20 @@ jobs:
       run: dotnet restore ./test-api/test-api.csproj
     - name: Build
       run: dotnet build --no-restore ./test-api/test-api.csproj
+    
+    - name: TTT
+    - uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
+      with:
+        message: Hank the tank
+          #secrets:
+          #  token: ${{ secrets.BOGUS_TOKEN }}
 
-  call-workflow-passing-data:
-    runs-on: ubuntu-latest
-    steps:
-      - name: call B
-      - uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
-        with:
-          username: mona
+ # call-workflow-passing-data:
+ #   runs-on: ubuntu-latest
+ #   steps:
+ #     - name: call B
+ #     - uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
+ #       with:
+ #         username: mona
         #secrets:
          # token: ${{ secrets.BOGUS_TOKEN }}
